@@ -28,7 +28,7 @@ body {
   flex-direction: column;
 
   width: 17rem;
-  height: 23.75rem;
+  min-height: 29.25rem;
 
   border-radius: 1rem;
   box-shadow: 0 0 12px 4px #eee;
@@ -47,4 +47,15 @@ body {
 
 .card .author {
   color: #888;
+}
+
+.card .btns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card .btn {
+  margin-block: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
