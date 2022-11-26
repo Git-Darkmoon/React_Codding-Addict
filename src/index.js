@@ -26,3 +26,4 @@ const App = () => {
 }
 
 ReactDom.render(<App />, document.getElementById("root"))
+// https://react-basics-coddingaddict.netlify.app
