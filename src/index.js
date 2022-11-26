@@ -1,88 +1,28 @@
 import React from "react"
 import ReactDom from "react-dom"
-//CSS
+
+// Importing CSS
 import "./index.css"
 
-/* Stateless functional component
-   Always return JSX */
+// Importing other jsx
+import { data } from "./bookData"
+import { Book } from "./Book"
 
-/* JSX Rules
-Return Single element
-div / section / article or React.Fragment => <> </>
-use camelCase for html attribute
-className instead of class
-close every element
-formatting */
-
-// Nested Components, React Tools
-
-const bookList = [
-  {
-    id: 1,
-    image:
-      "https://i0.wp.com/ellaberintodelminotauro.com.co/wp-content/uploads/2022/02/fairy-tale-9781668002179_xlg.jpg?ssl=1",
-    title: "Fairy Tale",
-    author: "Stephen King",
-  },
-  {
-    id: 2,
-    image:
-      "https://storage.googleapis.com/du-prd/books/images/9781668001226.jpg",
-    title: "IT STARTS WITH US",
-    author: "Colleen Hoover",
-  },
-  {
-    id: 3,
-    image:
-      "https://storage.googleapis.com/du-prd/books/images/9780316485654.jpg",
-    title: "DESERT STAR",
-    author: "Michael Connelly",
-  },
-  {
-    id: 4,
-    image:
-      "https://storage.googleapis.com/du-prd/books/images/9781501110375.jpg",
-    title: "IT ENDS WITH US",
-    author: "Colleen Hoover",
-  },
-]
+/* JSX Rules:
+  Return Single element
+  div / section / article or React.Fragment => <> </>
+  use camelCase for html attribute
+  close every element
+*/
 
 const App = () => {
   return (
     <section className="container">
-      {bookList.map((eachBook) => {
+      {data.map((eachBook) => {
         return <Book key={eachBook.id} {...eachBook} />
       })}
     </section>
   )
-}
-
-const Book = ({ image, title, author }) => {
-  /* ES6 Object destructuring, also can be done in the parameter
-  const { image, title, author } = props */
-
-  return (
-    <div className="card">
-      <img src={image} alt={title + "-" + author} />
-      <h2 className="title">{title}</h2>
-      <h4 className="author">{author}</h4>
-      <div className="btns">
-        <button className="btn" onClick={showMessage}>
-          Click me !
-        </button>
-        <button
-          className="btn"
-          onClick={() => alert(`This book is called: ${title}`)}
-        >
-          Show title
-        </button>
-      </div>
-    </div>
-  )
-}
-
-const showMessage = () => {
-  alert("Welcome to React !")
 }
 
 ReactDom.render(<App />, document.getElementById("root"))
